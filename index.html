@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoteSphere | Electronic Voting Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="#" class="logo">
+            <span class="logo-icon">✓</span>
+            VoteSphere
+        </a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#candidates">Candidates</a>
+            <a href="#results">Results</a>
+        </nav>
+
+        <span class="live-badge">
+            <span class="live-dot"></span> Demo Election
+        </span>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <span class="eyebrow">YOUR VOICE MATTERS</span>
+                <h1>Your Vote.<br><span>Your Future.</span></h1>
+                <p>
+                    A simple electronic voting machine demonstration.
+                    Explore the candidates and cast your demo vote.
+                </p>
+                <a href="#candidates" class="primary-btn">
+                    Cast Your Vote <span>→</span>
+                </a>
+                <div class="hero-note">
+                    <span class="shield">✓</span>
+                    Educational voting simulation
+                </div>
+            </div>
+
+            <div class="hero-art">
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+                <div class="vote-card">
+                    <div class="vote-card-top">
+                        <span>VOTING MACHINE</span>
+                        <span class="machine-dot"></span>
+                    </div>
+                    <div class="fingerprint">☝</div>
+                    <div class="vote-line"></div>
+                    <div class="vote-line short"></div>
+                    <div class="machine-footer">
+                        <span>YOUR CHOICE</span>
+                        <strong>YOUR VOICE</strong>
+                    </div>
+                </div>
+                <div class="floating-check">✓</div>
+                <div class="floating-label">Make it count.</div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="stat">
+                <span class="stat-icon">♙</span>
+                <div>
+                    <p>Candidates</p>
+                    <h2 id="candidateTotal">4</h2>
+                </div>
+            </div>
+            <div class="stat">
+                <span class="stat-icon">✓</span>
+                <div>
+                    <p>Total Demo Votes</p>
+                    <h2 id="totalVotes">0</h2>
+                </div>
+            </div>
+            <div class="stat">
+                <span class="stat-icon">◉</span>
+                <div>
+                    <p>Election Status</p>
+                    <h2 class="status-text" id="electionStatus">Open</h2>
+                </div>
+            </div>
+        </section>
+
+        <section class="candidates-section" id="candidates">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">MEET THE CANDIDATES</span>
+                    <h2>Choose Your Candidate</h2>
+                    <p>Review the candidates and select one to cast your demo vote.</p>
+                </div>
+                <span class="candidate-count">04 CANDIDATES</span>
+            </div>
+
+            <div class="candidate-grid" id="candidateGrid"></div>
+
+            <div class="notice">
+                <span>ⓘ</span>
+                <p>
+                    <strong>Demo only:</strong> Votes are stored in this browser.
+                    This website is not an official election system.
+                </p>
+            </div>
+        </section>
+
+        <section class="results-section" id="results">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">ELECTION SUMMARY</span>
+                    <h2>Demo Results</h2>
+                    <p>See the vote distribution for each candidate.</p>
+                </div>
+                <button class="outline-btn" id="refreshResults">
+                    Refresh Results ↻
+                </button>
+            </div>
+
+            <div class="results-panel">
+                <div class="results-top">
+                    <div>
+                        <span class="eyebrow">CURRENT STANDINGS</span>
+                        <h3>Votes Overview</h3>
+                    </div>
+                    <span class="demo-label">LOCAL DEMO DATA</span>
+                </div>
+                <div id="resultsList"></div>
+                <div class="results-total">
+                    <span>Total votes recorded</span>
+                    <strong id="resultsTotal">0</strong>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <a href="#home" class="logo footer-logo">
+            <span class="logo-icon">✓</span> VoteSphere
+        </a>
+        <p>Designed as a student mini project using HTML, CSS and JavaScript.</p>
+        <span>Educational simulation © 2026</span>
+    </footer>
+
+    <div class="modal" id="voteModal" aria-hidden="true">
+        <div class="modal-box" role="dialog" aria-modal="true"
+             aria-labelledby="modalTitle">
+            <button class="close-btn" id="closeModal" aria-label="Close">×</button>
+            <div class="modal-icon" id="modalIcon">✓</div>
+            <span class="eyebrow" id="modalEyebrow">CONFIRM YOUR CHOICE</span>
+            <h2 id="modalTitle">Cast your vote?</h2>
+            <p id="modalMessage">You are selecting this candidate.</p>
+            <div class="modal-actions" id="modalActions">
+                <button class="outline-btn" id="cancelVote">Cancel</button>
+                <button class="primary-btn" id="confirmVote">Confirm Vote</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
